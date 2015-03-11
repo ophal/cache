@@ -23,8 +23,15 @@ NOTE: To specify a different cache bin, pass it as argument of cache. Custom exp
 Run the following SQL queries in strict order:
 
 ```SQL
+-- SQLite3
 CREATE TABLE cache(id VARCHAR(255) PRIMARY KEY, data TEXT, expire UNSIGNED BIG INT, created UNSIGNED BIG INT, serialized BOOLEAN);
 CREATE INDEX idx_cache_expire ON cache(expire);
+```
+
+```SQL
+-- PostgreSQL
+CREATE TABLE cache(id varchar(255) PRIMARY KEY NOT NULL, data text, expire BIGINT NOT NULL, created BIGINT NOT NULL, serialized smallint);
+CREATE INDEX idx_cache_expire ON cache USING btree (expire);
 ```
 
 If you want to create another cache bin, just change prefix the table name with 'cache_', for example:
