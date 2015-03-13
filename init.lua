@@ -4,6 +4,10 @@ ophal.cache = _M -- Not an standard module for convenience
 local time, table_dump = os.time, seawolf.contrib.table_dump
 local config, xtable = settings.cache, seawolf.contrib.seawolf_table
 
+function _M.cron()
+  db_query('DELETE FROM cache WHERE expire <= ?', time())
+end
+
 function _M.get(t, key)
   local data_function, err, parsed, data
 
