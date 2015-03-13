@@ -11,7 +11,7 @@ end
 function _M.get(t, key)
   local data_function, err, parsed, data
 
-  local rs = db_query('SELECT * FROM ' .. t.bin .. ' WHERE id = ? AND (expire = 0 OR expire >= ?)', key, time())
+  local rs = db_query('SELECT * FROM ' .. t.bin .. ' WHERE id = ?', key)
   local result = rs:fetch(true)
 
   if result then
