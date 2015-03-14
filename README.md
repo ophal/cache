@@ -4,7 +4,7 @@
 Example #1:
 
 ```Lua
-local cache = ophal.cache
+local cache = ophal.modules.cache
 cache:set('var:1', 'This is data for cache var:1.')
 ```
 NOTE: Cache is not an standard module, it registers itself under the global ophal variable.
@@ -12,7 +12,7 @@ NOTE: Cache is not an standard module, it registers itself under the global opha
 Example #2:
 
 ```Lua
-local cache = ophal.cache
+local cache = ophal.modules.cache
 cache('custom'):set('var:2', {id = 1, somekey = 'storing this Lua table on a different bin'}, time() + 5*60*60)
 ```
 NOTE: To specify a different cache bin, pass it as argument of cache. Custom expire time is set as 3rd argument.

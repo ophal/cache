@@ -1,5 +1,5 @@
 local _M = {bin = 'cache'}
-ophal.cache = _M -- Not an standard module for convenience
+ophal.modules.cache = _M
 
 local time, table_dump = os.time, seawolf.contrib.table_dump
 local config, xtable = settings.cache, seawolf.contrib.seawolf_table
